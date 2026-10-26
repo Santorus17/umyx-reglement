@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101719">
+  <meta name="description" content="Règlement officiel de la communauté Lumyx SWL Roleplay.">
+  <title>Règlement • Lumyx SWL</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #101719;
+      --panel: #182124;
+      --panel-raised: #202a2e;
+      --line: #344347;
+      --text: #f1f6f5;
+      --muted: #a8b8b7;
+      --accent: #00e7c8;
+      --accent-deep: #073f3b;
+      --warning: #ffcc72;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .topbar {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 clamp(18px, 5vw, 72px);
+      border-bottom: 1px solid var(--line);
+      background: #121b1e;
+    }
+    .wordmark { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+    .wordmark-mark {
+      width: 34px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 15px;
+      transform: rotate(-8deg);
+    }
+    .wordmark small { display: block; color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: 1.2px; }
+    .top-link { color: var(--muted); font-size: 13px; text-decoration: none; }
+    .top-link:hover { color: var(--accent); }
+    .shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    .hero { padding: 50px 0 28px; }
+    .eyebrow { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+    h1 { max-width: 780px; margin: 8px 0 12px; font-size: clamp(32px, 5vw, 58px); line-height: 1.05; }
+    .hero-copy { max-width: 650px; margin: 0; color: var(--muted); font-size: 16px; }
+    .hero-banner {
+      width: 100%;
+      max-height: 310px;
+      min-height: 150px;
+      display: block;
+      margin-top: 30px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      background: var(--panel);
+      object-fit: cover;
+      object-position: center;
+    }
+    .layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 34px; padding: 16px 0 72px; }
+    .sidebar { align-self: start; position: sticky; top: 22px; }
+    .nav-label { margin: 0 0 10px 12px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+    .chapter-list { display: grid; gap: 5px; }
+    .chapter-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 11px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      text-align: left;
+      cursor: pointer;
+    }
+    .chapter-button:hover { border-color: var(--line); color: var(--text); }
+    .chapter-button[aria-current="page"] { border-color: #14766d; background: var(--accent-deep); color: var(--text); }
+    .chapter-emoji { width: 22px; font-size: 16px; }
+    .sidebar-note { margin: 20px 0 0; padding: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .sidebar-note strong { color: var(--text); }
+    .article { min-width: 0; padding: clamp(20px, 4vw, 38px); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 4px; background: var(--panel); }
+    .article-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+    .article-kicker { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; }
+    h2 { margin: 3px 0 0; font-size: clamp(22px, 3vw, 32px); line-height: 1.2; }
+    .page-count { flex: 0 0 auto; padding: 5px 9px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); font-size: 11px; }
+    .rule-content { padding: 10px 0 24px; }
+    .rule-content h3 { margin: 22px 0 5px; color: var(--text); font-size: 15px; }
+    .rule-content h3::before { content: ""; display: inline-block; width: 3px; height: 14px; margin-right: 9px; background: var(--accent); vertical-align: -2px; }
+    .rule-content p { margin: 0; color: #c4d0cf; font-size: 14px; }
+    .article-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .page-nav { display: flex; gap: 8px; }
+    .nav-arrow, .discord-link {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--panel-raised);
+      color: var(--text);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .nav-arrow:hover, .discord-link:hover { border-color: var(--accent); }
+    .nav-arrow:disabled { opacity: .38; cursor: default; }
+    .discord-link { border-color: var(--accent); background: var(--accent); color: #071b19; }
+    .discord-link:hover { background: #6cf2df; }
+    .legal-note { margin: 18px 0 0; color: var(--muted); font-size: 11px; }
+    .site-footer { padding: 22px 0 30px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    @media (max-width: 760px) {
+      .topbar { height: 60px; padding: 0 18px; }
+      .shell { width: min(100% - 28px, 600px); }
+      .hero { padding-top: 35px; }
+      .layout { grid-template-columns: 1fr; gap: 14px; padding-top: 8px; }
+      .sidebar { position: static; }
+      .nav-label, .sidebar-note { display: none; }
+      .chapter-list { display: flex; overflow-x: auto; padding: 2px 0 6px; scrollbar-width: thin; }
+      .chapter-button { width: auto; min-width: max-content; padding: 8px 10px; }
+      .article { padding: 20px 16px; }
+      .article-footer { align-items: stretch; flex-direction: column; }
+      .page-nav { justify-content: space-between; }
+      .discord-link { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wordmark"><span class="wordmark-mark">★</span><span>LUMYX SWL<small>ROLEPLAY • RÈGLEMENT OFFICIEL</small></span></div>
+    <a class="top-link" id="header-discord" href="#">Retour au Discord ↗</a>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Guide communautaire</div>
+      <h1>Les règles du serveur.</h1>
+      <p class="hero-copy">Les repères communs pour jouer, travailler et faire vivre Lumyx SWL dans un cadre respectueux.</p>
+      <img class="hero-banner" id="rules-banner" alt="Bannière du règlement Lumyx SWL">
+    </section>
+    <section class="layout" aria-label="Règlement du serveur">
+      <aside class="sidebar">
+        <p class="nav-label">Rubriques</p>
+        <nav class="chapter-list" id="chapter-list" aria-label="Rubriques du règlement"></nav>
+        <p class="sidebar-note"><strong>Une question ?</strong><br>Le staff peut clarifier une règle via un ticket Discord.</p>
+      </aside>
+      <article class="article">
+        <header class="article-head">
+          <div><div class="article-kicker">Lumyx SWL • Règles</div><h2 id="page-title"></h2></div>
+          <span class="page-count" id="page-count"></span>
+        </header>
+        <div class="rule-content" id="page-content"></div>
+        <footer class="article-footer">
+          <div class="page-nav">
+            <button class="nav-arrow" id="previous-page" type="button">← Précédent</button>
+            <button class="nav-arrow" id="next-page" type="button">Suivant →</button>
+          </div>
+          <a class="discord-link" id="discord-link" href="#">Ouvrir le salon règlement ↗</a>
+        </footer>
+        <p class="legal-note">Règlement communautaire et règles de jeu de rôle. Il ne constitue pas un avis juridique. Les consignes de modération et règles techniques du serveur restent applicables.</p>
+      </article>
+    </section>
+    <footer class="site-footer">© <span id="year"></span> Lumyx SWL • Support Officiel</footer>
+  </main>
+  <script type="application/json" id="rules-data">{"accent":"#00E7C8","banner":"assets/rules-banner.png","discordUrl":"https://discord.com/channels/1563931324887212172/1563931325730394157","pages":[{"key":"discord","title":"Règlement Discord","emoji":"💬","body":"**1. Respect et comportement**\nReste courtois avec les membres et le staff. Les insultes ciblées, le harcèlement, les propos discriminatoires, les menaces et la diffusion de contenus choquants sont interdits.\n\n**2. Salons et conversations**\nUtilise chaque salon pour son sujet. Évite le spam, le flood, les mentions répétées, la publicité non autorisée et les conversations volontairement perturbatrices.\n\n**3. Vie privée et sécurité**\nNe publie pas d’informations personnelles, de conversations privées ou d’enregistrements sans l’accord des personnes concernées. Ne partage jamais de mot de passe, token ou lien suspect.\n\n**4. Jeu et échanges hors jeu**\nGarde les échanges RP dans les salons prévus. Les conflits entre personnages ne justifient pas le harcèlement d’un joueur sur Discord.\n\n**5. Modération et recours**\nRespecte les décisions du staff et conteste-les calmement par ticket, avec des éléments vérifiables. Contourner une sanction avec un autre compte est interdit.\n\n**6. Règles de la plateforme**\nLes conditions d’utilisation et règles de Discord s’appliquent en permanence. Le staff peut retirer un contenu ou sanctionner un comportement qui met la communauté en danger."},{"key":"legal","title":"Règlement RP légal","emoji":"⚖️","body":"**1. Jeu loyal**\nJoue les conséquences de tes actes. Le metagaming, le powergaming, le combat logging, l’exploitation de bugs et toute action empêchant l’autre joueur de répondre sont interdits.\n\n**2. Informations et scènes**\nUn personnage ne peut utiliser que les informations obtenues en jeu. Construis les scènes de façon cohérente et laisse aux autres le temps de réagir.\n\n**3. Métiers et services**\nExerce ton métier avec sérieux pendant ton service. N’utilise pas les moyens, accès ou informations d’un emploi légal pour obtenir un avantage personnel ou contourner une scène.\n\n**4. Interactions**\nPrivilégie le dialogue lorsqu’il est cohérent. Une provocation répétée dans le seul but de déclencher une poursuite ou un affrontement peut être sanctionnée.\n\n**5. Économie et biens**\nLes échanges, contrats et achats doivent rester cohérents avec les systèmes du serveur. Les transferts destinés à contourner une règle ou une sanction sont interdits.\n\n**6. Désaccord en scène**\nTermine la scène si possible, puis ouvre un ticket avec date, contexte et preuves. N’interromps pas le RP pour régler un différend hors jeu."},{"key":"illegal","title":"Règlement RP illégal","emoji":"🚨","body":"**1. Construire une histoire**\nLes activités illégales doivent s’inscrire dans une scène cohérente. Les agressions ou vols sans contexte, les actions répétées contre la même personne et le kill gratuit sont interdits.\n\n**2. Laisser jouer les scènes**\nRespecte le fear RP, les rapports de force et les conséquences. Ne force pas une issue impossible et laisse aux personnes impliquées une possibilité raisonnable de répondre.\n\n**3. Otages et négociations**\nUne prise d’otage doit servir une scène et laisser place au dialogue. Les otages fictifs ou complices ne doivent pas être utilisés pour obtenir un avantage abusif.\n\n**4. Conflits entre organisations**\nLes conflits doivent avoir une origine RP identifiable. Pas de représailles hors jeu, de ciblage personnel, de reconnexion opportuniste ni de harcèlement après la scène.\n\n**5. Zones et déconnexions**\nN’utilise pas une zone protégée, un écran de chargement ou une déconnexion pour échapper à une scène. Le combat logging et l’exploitation de bugs sont interdits.\n\n**6. Fair-play**\nAucune information Discord ou stream ne peut servir à localiser une cible ou anticiper une action. Les règles d’événement et consignes staff priment pendant les scènes encadrées."},{"key":"sasp","title":"Règlement SASP","emoji":"🚔","body":"**1. Devoir et exemplarité**\nRespecte la hiérarchie et les procédures internes. En service, reste professionnel avec les citoyens, les collègues et les autres services.\n\n**2. Procédures et proportionnalité**\nAdapte l’intervention à la situation. Explique les motifs d’un contrôle ou d’une arrestation lorsque la scène le permet et laisse au joueur le temps de répondre.\n\n**3. Usage des moyens**\nN’utilise que les véhicules, équipements, accès et informations autorisés pour ton rôle. L’usage de la force doit rester cohérent avec la scène et les consignes du serveur.\n\n**4. Enquêtes et preuves**\nConstruis les enquêtes à partir d’éléments obtenus en jeu. Aucune information OOC, donnée Discord ou connaissance personnelle ne peut justifier une action RP.\n\n**5. Service et conflits d’intérêts**\nNe détourne pas ton statut pour régler un conflit personnel, favoriser un proche ou obtenir des biens. Respecte la séparation entre service et vie privée du personnage.\n\n**6. Coordination**\nUtilise les canaux radio prévus et transmets des informations claires. Respecte les consignes de scène et les arbitrages du staff."},{"key":"ems","title":"Règlement EMS","emoji":"🚑","body":"**1. Neutralité médicale**\nLes EMS soignent les personnes selon la scène, sans favoritisme lié à une organisation ou à un conflit. Ils ne participent pas aux activités illégales pendant leur service.\n\n**2. Sécurité de l’intervention**\nÉvalue la situation avant d’intervenir. Si la zone est encore dangereuse, coordonne-toi avec les services présents et attends qu’elle soit suffisamment sécurisée.\n\n**3. Jouer les soins**\nDécris les examens et soins de façon cohérente. N’utilise pas une réanimation pour annuler une scène ou éviter automatiquement ses conséquences.\n\n**4. Service et matériel**\nUtilise les véhicules, équipements, dossiers et accès uniquement pour les besoins du service. Le matériel médical ne sert pas à fournir un avantage indu.\n\n**5. Confidentialité RP**\nLes informations médicales restent dans le cadre RP approprié. Ne transmets pas d’informations obtenues en service pour aider un groupe ou régler un conflit.\n\n**6. Coordination**\nReste joignable sur les canaux de service et transmets les informations utiles aux autres intervenants, dans le respect du secret et des règles RP du serveur."},{"key":"business","title":"Règlement des entreprises","emoji":"🏢","body":"**1. Gestion et responsabilités**\nLe responsable organise l’activité, encadre les employés et répond des actions réalisées au nom de l’entreprise. Les accès de gestion restent réservés aux personnes autorisées.\n\n**2. Activité cohérente**\nRespecte la spécialité, les horaires et les conditions annoncés par l’entreprise. Accueille les clients correctement et ne détourne pas un service pour bloquer ou harceler un joueur.\n\n**3. Employés et recrutement**\nExplique les règles internes aux employés et utilise les outils de gestion prévus. Toute sanction interne doit rester proportionnée et liée au fonctionnement de l’entreprise.\n\n**4. Comptes et transactions**\nLes transactions doivent correspondre à une activité RP et utiliser les systèmes du serveur. Le partage de comptes, les transferts destinés à contourner les règles et l’exploitation de bugs sont interdits.\n\n**5. Communication**\nPublie les annonces dans les salons autorisés et indique des informations compréhensibles sur les prestations. La publicité répétée ou trompeuse est interdite.\n\n**6. Litiges et changements**\nConserve les éléments utiles en cas de litige et ouvre un ticket. Les reprises, cessions ou changements de gestion doivent suivre la procédure annoncée par le staff."}]}</script>
+  <script>
+    const data = JSON.parse(document.getElementById('rules-data').textContent);
+    const list = document.getElementById('chapter-list');
+    const title = document.getElementById('page-title');
+    const count = document.getElementById('page-count');
+    const content = document.getElementById('page-content');
+    const previous = document.getElementById('previous-page');
+    const next = document.getElementById('next-page');
+    let activePage = 0;
+
+    document.documentElement.style.setProperty('--accent', data.accent || '#00e7c8');
+    document.getElementById('rules-banner').src = data.banner;
+    document.getElementById('year').textContent = new Date().getFullYear();
+    if (data.discordUrl) {
+      document.getElementById('header-discord').href = data.discordUrl;
+      document.getElementById('discord-link').href = data.discordUrl;
+    } else {
+      document.getElementById('header-discord').hidden = true;
+      document.getElementById('discord-link').hidden = true;
+    }
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
+    }
+
+    function renderPage(index) {
+      activePage = Math.max(0, Math.min(data.pages.length - 1, index));
+      const page = data.pages[activePage];
+      title.textContent = `${page.emoji} ${page.title}`;
+      count.textContent = `${String(activePage + 1).padStart(2, '0')} / ${String(data.pages.length).padStart(2, '0')}`;
+      content.innerHTML = page.body.split('\n').filter(Boolean).map(line => {
+        const safeLine = escapeHtml(line).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        return line.startsWith('**') ? `<h3>${safeLine.replace(/^\*\*(.+?)\*\*$/, '$1')}</h3>` : `<p>${safeLine}</p>`;
+      }).join('');
+      previous.disabled = activePage === 0;
+      next.disabled = activePage === data.pages.length - 1;
+      for (const button of list.querySelectorAll('button')) {
+        if (Number(button.dataset.index) === activePage) button.setAttribute('aria-current', 'page');
+        else button.removeAttribute('aria-current');
+      }
+    }
+
+    data.pages.forEach((page, index) => {
+      const button = document.createElement('button');
+      button.className = 'chapter-button';
+      button.type = 'button';
+      button.dataset.index = String(index);
+      button.innerHTML = `<span class="chapter-emoji">${escapeHtml(page.emoji)}</span><span>${escapeHtml(page.title)}</span>`;
+      button.addEventListener('click', () => renderPage(index));
+      list.append(button);
+    });
+    previous.addEventListener('click', () => renderPage(activePage - 1));
+    next.addEventListener('click', () => renderPage(activePage + 1));
+    renderPage(0);
+  </script>
+</body>
+</html>
